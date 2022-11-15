@@ -55,7 +55,7 @@ class MainTest {
     @ParameterizedTest
     @CsvSource({
             "0, -12.746",
-            "120, 1.167",
+            "120, 11.61",
             "260, 2.733"
     })
     void testCreateArrayOfValues(int index, double expectedValue) {
@@ -64,7 +64,7 @@ class MainTest {
 
     @Test
     void testFindIndexOfMaxValue() {
-        assertThat(Main.findIndexOfMaxValue(values)).isEqualTo(260);
+        assertThat(Main.findIndexOfMaxValue(values)).isEqualTo(120);
     }
 
     @Test
@@ -74,11 +74,11 @@ class MainTest {
 
     @Test
     void testCalculateSumOfValues() {
-        assertThat(Main.calculateSumOfValues(values)).isCloseTo(-167.6, Percentage.withPercentage(0.1));
+        assertThat(Main.calculateSumOfValues(values)).isCloseTo(-157.1, Percentage.withPercentage(0.1));
     }
 
     @Test
     void testCalculateAverageOfValues() {
-        assertThat(Main.calculateAverageOfValues(values)).isCloseTo(-0.642, Percentage.withPercentage(0.1));
+        assertThat(Main.calculateAverageOfValues(values)).isCloseTo(-0.602, Percentage.withPercentage(0.1));
     }
 }

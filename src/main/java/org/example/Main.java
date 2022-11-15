@@ -19,12 +19,12 @@ public class Main {
     }
 
     public static double calculateFunction(double x) {
-        if(x < 1.3) {
-            return Math.PI * Math.pow(x, 2) - 7 / Math.pow(x, 2);
-        } else if(x == 1.3) {
+        if(Math.ceil(x * Math.pow(10, 3)) / Math.pow(10,3) == 1.3) {
             return A * Math.pow(x, 3) + 7 * Math.sqrt(x);
-        } else {
+        } else if(x > 1.3) {
             return Math.log(x + 7 * Math.sqrt(Math.abs(x + A)));
+        } else {
+            return Math.PI * Math.pow(x, 2) - 7 / Math.pow(x, 2);
         }
     }
 
@@ -51,8 +51,10 @@ public class Main {
 
     public static int findIndexOfMaxValue(double[] values) {
         int maxIndex = 0;
+        double maxValue = values[maxIndex];
         for(int i = 1; i < values.length; i++) {
-            if(values[i] > values[i - 1]) {
+            if(maxValue < values[i]) {
+                maxValue = values[i];
                 maxIndex = i;
             }
         }
@@ -61,8 +63,10 @@ public class Main {
 
     public static int findIndexOfMinValue(double[] values) {
         int minIndex = 0;
+        double minValue = values[minIndex];
         for(int i = 1; i < values.length; i++) {
-            if(values[i] < values[i - 1]) {
+            if(minValue > values[i]) {
+                minValue = values[i];
                 minIndex = i;
             }
         }
